@@ -1,0 +1,74 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.3</TargetFramework>
+    <DefineConstants>$(DefineConstants);NETSTANDARD</DefineConstants>
+    <PublicSign Condition="'$(OS)' != 'Windows_NT'">true</PublicSign>
+    <AssemblyName>Dicom.Core</AssemblyName>
+    <AssemblyOriginatorKeyFile>../../DICOM/fo-dicom.snk</AssemblyOriginatorKeyFile>
+    <SignAssembly>true</SignAssembly>
+    <PackageId>NetCore</PackageId>
+    <NetStandardImplicitPackageVersion>1.6.1</NetStandardImplicitPackageVersion>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+    <GenerateNeutralResourcesLanguageAttribute>false</GenerateNeutralResourcesLanguageAttribute>
+    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+    <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+    <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="../../DICOM/**/*.cs" />
+    <Compile Include="../../DICOM/../SharedAssemblyInfo.cs" />
+    <Compile Include="../../DICOM/Imaging/Codec/DicomJpeg2000LosslessCodec.cs" />
+    <Compile Include="../../DICOM/Imaging/Codec/DicomJpeg2000LossyCodec.cs" />
+
+    <Compile Remove="../../DICOM/Compatibility/*" />
+    <Compile Remove="../../DICOM/**/Android*" />
+    <Compile Remove="../../DICOM/**/IOS*" />
+    <Compile Remove="../../DICOM/**/Unity*" />
+    <Compile Remove="../../DICOM/**/WinForms*" />
+    <Compile Remove="../../DICOM/**/WPF*" />
+    <Compile Remove="../../DICOM/**/Windows*" />
+    <Compile Remove="../../DICOM/Imaging/Codec/Desktop*" />
+    <Compile Remove="../../DICOM/Imaging/Codec/*Loss*" />
+    <Compile Remove="../../DICOM/Imaging/Codec/*Native*.cs" />
+    <Compile Remove="../../DICOM/Imaging/DicomOverlayDataFactory.cs" />
+    <Compile Remove="../../DICOM/Imaging/Codec/DicomJpegProcess1Codec.cs" />
+    <Compile Remove="../../DICOM/Imaging/Codec/DicomJpegProcess4Codec.cs" />
+    <Compile Remove="../../DICOM/Imaging/Codec/DicomJpegProcess4Codec.Mono.cs" />
+    <Compile Remove="../../DICOM/Imaging/Codec/DicomRleCodecImpl.cs" />
+    <Compile Remove="../../DICOM/IO/Reader/DicomFileReaderExtensions.cs" />
+    <Compile Remove="../../DICOM/IO/Reader/DicomReaderExtensions.cs" />
+    <Compile Remove="../../DICOM/IO/Writer/DicomFileWriterExtensions.cs" />
+    <Compile Remove="../../DICOM/Media/DicomDirectory.Async.cs" />
+    <Compile Remove="../../DICOM/Network/DicomClientExtensions.cs" />
+    <Compile Remove="../../DICOM/Printing/FilmBoxExtensions.cs" />
+    <Compile Remove="../../DICOM/Printing/ImageBoxExtensions.cs" />
+    <Compile Remove="../../DICOM/AsyncFactory.cs" />
+    <Compile Remove="../../DICOM/DicomDatasetWalkerExtensions.cs" />
+    <Compile Remove="../../DICOM/DicomFile.Async.cs" />
+    <Compile Remove="../../DICOM/DicomFileExtensions.Async.cs" />
+    
+    <DotNetCliToolReference Include="NETStandard.Library" Version="1.6.1" /> 
+    <EmbeddedResource Include="..\..\DICOM\Dictionaries\DICOMDictionary.xml.gz" Link="DICOMDictionary.xml.gz" >
+      <LogicalName>Dicom.Dictionaries.DICOMDictionary.xml.gz</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\DICOM\Dictionaries\PrivateDictionary.xml.gz" Link="PrivateDictionary.xml.gz" >
+      <LogicalName>Dicom.Dictionaries.PrivateDictionary.xml.gz</LogicalName>
+    </EmbeddedResource>
+    
+    <PackageReference Include="System.Data.SqlClient" Version="4.3.0" />
+    <PackageReference Include="System.IO.FileSystem" Version="4.3.0" />
+    <PackageReference Include="System.Net.NetworkInformation" Version="4.3.0" />
+    <PackageReference Include="System.Net.Security" Version="4.3.0" />
+    <PackageReference Include="System.Runtime.Serialization.Primitives" Version="4.3.0" />
+    <PackageReference Include="System.Runtime.Numerics" Version="4.3.0" />
+    <PackageReference Include="System.Threading.Tasks.Parallel" Version="4.3.0" />
+    <PackageReference Include="CSJ2K" Version="2.0.0.1" />
+    <PackageReference Include="Portable.LibJpeg.NET" Version="1.5.1.1" />
+    
+  </ItemGroup>
+
+</Project>
